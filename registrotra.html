@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Registro de trabajadores</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="estilos.css">
+	<link rel="stylesheet" href="reg_style.css">
+</head>
+<body>
+
+	<!-- Barra de navegacion -->
+	<span class="nav-bar" id="btnMenu"><i class="fas fa-bars"></i> Menú</span>
+	<nav class="main-nav">
+		<ul class="menu" id="menu">
+			<li class="menu__item"><a href="index.html" class="menu__link">Inicio</a></li>
+			<li class="menu__item"><a href="registrotra.html" class="menu__link">Registrar trabajador</a></li>
+			<li class="menu__item"><a href="#" class="menu__link">Buscar trabajador</a></li>
+			<li class="menu__item"><a href="#" class="menu__link">Actualizar datos</a></li>
+			<li class="menu__item"><a href="#" class="menu__link">Eliminar datos</a></li>
+			<li class="menu__item container-submenu">
+				<a href="#" class="menu__link submenu-btn">Nosotros <i class="fas fa-chevron-down"></i></a>
+				<ul class="submenu">
+					<li class="menu__item"><a href="#" class="menu__link">Soporte técnico</a></li>
+					<li class="menu__item"><a href="#" class="menu__link">Redes sociales</a></li>
+					<li class="menu__item"><a href="#" class="menu__link">Preguntas frecuentes</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+
+	<div class="contenedor">
+		<form class="form" action="insertarreg.php" method="POST">
+			<legend>Registro del trabajador</legend>
+			<label>Nombre:</label>
+			<input type="text" name="nombre" class="nombre" placeholder="Nombre" required=""> <br>
+
+			<label>Clave del trabajador:</label>
+			<input type="number" name="clave" class="clave" placeholder="Clave" required=""><br>
+
+			<label>Sexo:</label>
+			<select name="sexo" id="sexo">
+				<option value="Masculino">Masculino</option>
+				<option value="Femenino">Femenino</option>
+			</select> <br>
+
+			<label>Edad:</label>
+			<input type="number" name="edad" class="edad" placeholder="Edad" required="">
+
+			<select name="nombrepuesto" id="nombrepuesto">
+				<?php
+					include("conex.php");
+
+					$getpuestos1 = "SELECT * FROM puestos";
+					$getpuestos2 = mysql_query($getpuestos1);
+
+					while ($row = mysql_fetch_array($getpuestos2)) {
+						$id = $row['id'];
+						$nombrepuesto = $row['nombrepuesto'];
+						?>
+						<option value="<?php echo $nombrepuesto; ?>"> <?php echo $id, '.- ', $nombrepuesto; ?></option>
+						<?php 
+					}
+				?>
+			</select><br>
+			
+			<input class="submit" type="submit" value="Ingresar">
+		</form>
+	</div>
+	
+	<footer>
+        <p> &copy; Copyright 2021 | ITSJC | Todos los derechos reservados </p>
+    </footer>
+
+	<script type="text/javascript" src="menu.js"></script>
+</body>
+</html>

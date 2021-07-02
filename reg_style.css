@@ -1,0 +1,101 @@
+.contenedor{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto 15px 35%;
+    width: 50%;
+    padding: 10px;
+    background-color: rgba(0, 255, 0, 0.3);
+    max-width: 400px;
+    max-height: 590px;
+    border-radius: 10px;
+    border: 2px solid green;
+}
+
+legend{
+    color: #035;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px 0 25px;
+}
+
+label{
+    font-size: 20px;
+    color: #035;
+}
+
+input{
+    font-size: 16px;
+    padding: 6px 0;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    width: 95%;
+    text-align: center;
+}
+
+input[type="radio"]{
+    padding: 0;
+    margin: 0;
+}
+
+select, option{
+    margin-bottom: 20px;
+    height: 30px;
+    width: 95%;
+}
+
+.submit{
+    text-transform: uppercase;
+    background: linear-gradient(#0BF32C,#E11B1B);
+    color: #FFF;
+    border-radius: 5px;
+    max-width: 50%;
+    opacity: 0.8;
+}
+
+.submit:hover{
+    transition:0.2s;    
+    background: linear-gradient(#E11B1B,#0BF32C);
+    cursor: pointer;
+    opacity: 1;
+}
+
+p.resultado, p.msg{
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+    color: #000000;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/*Estilos para la seccion de buscar trabajador*/
+div.caja_resultado{
+    background: rgba(255,255,255,0.8);
+    border: 6px groove #0FDC19;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    margin-left: 25%;
+    width: 50%;
+}
+
+/*Estilos para la seccion de borrar registros*/
+p.warning{
+    color: #EB0808;
+    font-size: 16px;
+    padding: 10px;
+    border: 2px dashed #EB0808;
+    width: 50%;
+    margin-left: 25%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@media(max-width: 1024px) {
+    .contenedor, .result{
+        margin-left: 15%;
+        width: 70%;
+    }
+}
